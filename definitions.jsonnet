@@ -7,7 +7,7 @@ local local_config = import "local.jsonnet";
   // Main
   local Spb_on(segment) = (
     base.base +
-    base.spanbert_large +
+    base.spanbert_base +
     base.Ontonotes(segment) +
     base.Name("spb_on_" + segment)
   ),
