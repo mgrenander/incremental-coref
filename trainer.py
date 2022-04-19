@@ -56,6 +56,7 @@ class Trainer(torch.nn.Module):
         best_epoch = epoch
 
   def train_epoch(self):
+    torch.cuda.empty_cache()  # We shouldn't need this...
     train_iterator = tqdm(self.data)
     total_loss = []
     for document in train_iterator:
