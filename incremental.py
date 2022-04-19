@@ -130,7 +130,7 @@ class Incremental(torch.nn.Module):
     if total_loss is not None:
       cpu_loss += total_loss.item()
       if train:
-        total_loss.backward(retain_graph=True)
+        total_loss.backward()
     return cpu_loss
 
   def compute_attach_stats(self, best_cluster_idx, gold_cluster_id):
