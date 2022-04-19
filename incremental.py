@@ -163,7 +163,8 @@ class Incremental(torch.nn.Module):
 
 
   def forward(self, segment, model_data, clusters, start_idx, mask, train=False):
-    doc_embs = self.encoder(segment)
+    with torch.no_grad():
+      doc_embs = self.encoder(segment)
     if mask is not None:
       doc_embs = torch.index_select(doc_embs, 1, torch.tensor(mask).to(self.device))
     if not self.finetune or not train:  # not detaching is memory expenisve
