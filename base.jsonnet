@@ -53,6 +53,7 @@ local local_config = import "local.jsonnet";
     //},
     patience: 5,
     finetune: false,
+    sent_inc: "none"
   },
 
   // Naming template
