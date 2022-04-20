@@ -8,15 +8,11 @@ class BertModel(torch.nn.Module):
     self.tokenizer = transformers.BertTokenizer.from_pretrained(config['bert_ckpt_dir'])
     self.model = transformers.BertModel.from_pretrained(config['bert_ckpt_dir'])
     self.device = device
-    self.sent_inc = config['sent_inc']
 
   def forward(self, sentence, eval_mode=False):
     if eval_mode:
       self.model.eval()
     model_input = torch.tensor(self.tokenizer.encode(sentence[1:-1]), device=self.device).unsqueeze(0)
-
-    if self.sent_inc == "sent_ind_inc":
-      print("wheeee.")
 
     outputs = self.model(model_input)
     final_layer = outputs[0]

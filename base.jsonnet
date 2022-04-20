@@ -52,8 +52,7 @@ local local_config = import "local.jsonnet";
     //    distance: 600,
     //},
     patience: 5,
-    finetune: false,
-    sent_inc: "none"
+    finetune: false
   },
 
   // Naming template

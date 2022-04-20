@@ -23,12 +23,6 @@ local local_config = import "local.jsonnet";
     for segment in [1, 5, 10, 128, 256, 384, 512]
   },
 
-  variants: {
-    spb_on_512_sent_ind: Spb_on(512) + {
-     sent_inc: "sent_ind_inc"
-    }
-  },
-
   evaluation: {
     ["spb_on_" + train + "_eval_" + test]: Eval(train, test)
     for train in [1, 5, 10, 128, 256, 384, 512]
