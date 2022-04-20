@@ -27,7 +27,7 @@ local local_config = import "local.jsonnet";
     spb_on_512_sent_ind: Spb_on(512) + {
      sent_inc: "sent_ind_inc"
     }
-  }
+  },
 
   evaluation: {
     ["spb_on_" + train + "_eval_" + test]: Eval(train, test)
