@@ -131,10 +131,10 @@ def split_into_segments(document_state, max_segment_len, constraints1, constrain
     if not sentences:
       end = min(current + max_segment_len - 1 - 2, len(document_state.subtokens) - 1)
     else:
-      curr_sent += max_segment_len
       end = min(current + 512 - 1 - 2, # max_segment_len is 512
                 len(document_state.subtokens) - 1,
                 boundaries[curr_sent] if curr_sent < len(boundaries) else 1000000)
+      curr_sent += max_segment_len
     while end >= current and not constraints1[end]:
       end -= 1
     if end < current:
